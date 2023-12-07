@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" ng-controller="myController">
+        <h1>PLANET Earth</h1>
+        <div ng-init="message = 'Hello, Guest!'" ng-bind="message"></div>
+        <br>
+        <div ng-controller="anotherController">
+            <h2>{{ greeting }}</h2>
+            <p>{{ description }}</p>
+            <label for="userInput">Enter Your Name:</label>
+            <input type="text" id="userInput" ng-model="userInput">
+            <p>User Input: {{ userInput }}</p>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myController', function ($scope) {
+        });
+        app.controller('anotherController', function ($scope) {
+            $scope.greeting = 'Welcome to the World!';
+            $scope.description = 'Earth is the planet that have water and oxygen which human use to live';
+        });
+    </script>
+</body>
+
+</html>
